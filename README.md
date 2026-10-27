@@ -40,7 +40,8 @@ ChatProject/
 - **Api:** Handles HTTP requests, controllers, and API endpoints.
 - **Application:** Contains application services, business workflows, and DTOs.
 - **Domain:** Contains the core entities and business models.
-- **Infrastructure:**Handles database access, repositories, and external integrations.
+- **Infrastructure:** Handles database access, repositories, and external integrations.
+
 
 ## Technical Highlights
 
@@ -52,4 +53,3 @@ ChatProject/
 - **Data Mapping:** Using DTOs and AutoMapper to structure API requests and responses.
 - **Caching:** Using Redis for caching and temporary data storage.
 - **Database Management:** Using Entity Framework Core with SQL Server.
-
