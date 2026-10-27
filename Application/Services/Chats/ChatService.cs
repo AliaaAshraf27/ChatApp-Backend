@@ -289,14 +289,6 @@ namespace Application.Services.Chats
                     chatDto.Name = displayName;
                 }
             }
-
-            //foreach (var chat in pinnedChats)
-            //{
-            //    if (chat.Type == ChatType.Private)
-            //    {
-            //        await _nameService.ApplyContactNamesAsync(pinnedChats, userId);
-            //    }
-            //}
             return ApiResponse<List<ChatDto>>.SuccessResponse(
                 _mapper.Map<List<ChatDto>>(result));
         }

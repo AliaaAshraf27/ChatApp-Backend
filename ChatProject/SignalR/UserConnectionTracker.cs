@@ -44,30 +44,5 @@ namespace Api.SignalR
 
         public bool IsOnline(Guid userId) => _users.ContainsKey(userId);
 
-
-        //private readonly ConcurrentDictionary<Guid, ConcurrentDictionary<string, byte>>
-        //   _userConnection = new();
-
-        //public void Add(Guid userId, string connectionId)
-        //{
-        //    var connections = _userConnection.GetOrAdd(userId, _ => new ConcurrentDictionary<string, byte>());
-        //    connections.TryAdd(connectionId, 0);
-        //}
-        //public void Remove(Guid userId, string connectionId)
-        //{
-        //    if (_userConnection.TryGetValue(userId, out var connections))
-        //    {
-        //        connections.TryRemove(connectionId, out _);
-        //        if (connections.IsEmpty)
-        //            _userConnection.TryRemove(userId, out _);
-        //    }
-        //}
-
-        //public IReadOnlyCollection<string> GetConnections(Guid userId)
-        //    => _userConnection.TryGetValue(userId, out var connections)
-        //        ? connections.Keys.ToArray() : Array.Empty<string>();
-
-        //public bool IsOnline(Guid userId)
-        //    => _userConnection.TryGetValue(userId, out var connections) && !connections.IsEmpty;
     }
 }

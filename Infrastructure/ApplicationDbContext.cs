@@ -28,14 +28,12 @@ namespace Infrastructure
             modelBuilder.Entity<UserBlock>(entity =>
             {
                 entity.HasKey(x => x.Id);
-
-                // User who blocked
                 entity.HasOne(x => x.User)
                     .WithMany(x => x.BlockedByMe)
                     .HasForeignKey(x => x.UserId)
                     .OnDelete(DeleteBehavior.Restrict);
 
-                // User who was blocked
+                
                 entity.HasOne(x => x.BlockedUser)
                     .WithMany(x => x.BlockedMe)
                     .HasForeignKey(x => x.BlockedUserId)
@@ -65,12 +63,11 @@ namespace Infrastructure
                 .HasForeignKey(v => v.ViewerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // كل مستخدم يشوف الحالة مرة واحدة بس تتسجل (مش كل مرة يفتحها)
+            
             modelBuilder.Entity<StatusView>()
                 .HasIndex(v => new { v.StatusId, v.ViewerId })
                 .IsUnique();
 
-            // Index مهم جدًا للأداء - هنستعلم عليه كتير
             modelBuilder.Entity<Status>()
                 .HasIndex(s => s.ExpiresAt);
 
@@ -93,15 +90,14 @@ namespace Infrastructure
                 .HasIndex(c => new { c.UserId, c.ContactUserId })
                 .IsUnique();
 
-            // جلب رسايل chat مرتبة بالوقت
             modelBuilder.Entity<Message>()
                 .HasIndex(m => new { m.ChatId, m.SentAt });
 
-            // GetChatIdsAsync و IsMemberAsync
+            
             modelBuilder.Entity<ChatMember>()
                 .HasIndex(cm => new { cm.UserId, cm.ChatId });
 
-            // منع تكرار العضو في نفس الشات
+            
             modelBuilder.Entity<ChatMember>()
                 .HasIndex(cm => new { cm.ChatId, cm.UserId })
                 .IsUnique();

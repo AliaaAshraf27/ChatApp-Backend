@@ -12,7 +12,6 @@ namespace Domain.IRepository
         Task<List<Chat>> GetUserChatsAsync(Guid userId);
         Task<Chat?> GetByIdAsync(Guid Id);
         Task<Chat?> GetPrivateChatAsync(Guid currentId, Guid targetId);
-        //Task<List<Chat>> GetAllPrivateChatsAsync(Guid userId);
         Task<List<Chat>> GetArchivedChatsAsync(Guid userId);
         Task<List<Chat>> GetPinnedChatsAsync(Guid userId);
         Task AddAsync(Chat chat);

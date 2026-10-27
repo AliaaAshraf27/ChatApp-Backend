@@ -47,12 +47,6 @@ namespace Application.Services.File
             }
 
             var filePath = Path.Combine(webRootPath,url.TrimStart('/'));
-
-            //if (File.Exists(filePath))
-            //{
-            //    File.Delete(filePath);
-            //}
-
             return Task.CompletedTask;
         }
     }

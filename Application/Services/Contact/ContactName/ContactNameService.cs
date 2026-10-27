@@ -12,11 +12,14 @@ using System.Threading.Tasks;
 
 namespace Application.Services.Contact.ContactName
 {
-    public class ContactNameService(IMemberRepository _memberRepo, IContactService _contactService, IChatRepository _chatRepo, IUserRepository _userRepo) : IContactNameService
+    public class ContactNameService(
+        IMemberRepository _memberRepo, 
+        IContactService _contactService,
+        IChatRepository _chatRepo, 
+        IUserRepository _userRepo) : IContactNameService
     {
         public async Task<Dictionary<Guid, string>> GetDisplayNamesAsync(
-        Guid currentUserId,
-        IEnumerable<Guid> userIds)
+             Guid currentUserId,IEnumerable<Guid> userIds)
         {
             var ids = userIds.Distinct().ToList();
 
@@ -97,48 +100,5 @@ namespace Application.Services.Contact.ContactName
                 }
             }
         }
-        //public async Task<List<Chat>> ApplyContactNamesAsync(Guid userId)
-        //{
-        //    var chats = await _chatRepo.GetAllPrivateChatsAsync(userId);
-        //    if (chats == null || chats.Count == 0)
-        //        return new List<Chat>();
-
-        //    var otherMemberIds =
-        //        await _memberRepo.GetPrivateChatOtherMemberIdsAsync(userId);
-
-        //    if (otherMemberIds == null || otherMemberIds.Count == 0)
-        //        return chats;
-
-        //    var contactUserIds = chats
-        //        .Where(c => c != null && otherMemberIds.ContainsKey(c.Id))
-        //        .Select(c => otherMemberIds[c.Id])
-        //        .Distinct()
-        //        .ToList();
-
-        //    if (contactUserIds.Count == 0)
-        //        return chats;
-
-        //    var contactNames = await _contactService.GetContactNamesAsync(
-        //        userId,
-        //        contactUserIds);
-
-        //    if (contactNames == null || contactNames.Count == 0)
-        //        return chats;
-
-        //    foreach (var chat in chats)
-        //    {
-        //        if (chat == null)
-        //            continue;
-
-        //        if (otherMemberIds.TryGetValue(chat.Id, out var otherUserId) &&
-        //            contactNames.TryGetValue(otherUserId, out var contactName) &&
-        //            !string.IsNullOrWhiteSpace(contactName))
-        //        {
-        //            chat.Name = contactName;
-        //        }
-        //    }
-
-        //    return chats;
-        //}
     }
 }

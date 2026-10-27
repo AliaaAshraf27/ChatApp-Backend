@@ -15,9 +15,7 @@ namespace Domain.IRepository
         Task<bool> ExistsAsync(Guid userId, Guid contactUserId);
         Task AddAsync(Contact contact);
         Task DeleteAsync(Guid userId, Guid contactUserId);
-        Task<Dictionary<Guid, string>> GetContactNamesAsync(
-    Guid userId,
-    IEnumerable<Guid> contactUserIds);
+        Task<Dictionary<Guid, string>> GetContactNamesAsync(Guid userId,IEnumerable<Guid> contactUserIds);
         Task<string?> GetContactNameAsync(Guid userId, Guid contactUserId);
     }
 }

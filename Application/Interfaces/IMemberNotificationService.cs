@@ -16,13 +16,6 @@ namespace Application.Interfaces
         Task SendMemberLeftAsync(Guid chatId, Guid userId);
         Task SendPromotedAsync(Guid chatId, Guid userId);
         Task SendDemotedAsync(Guid chatId, Guid userId);
-       // Task SendProfileUpdatedAsync(UserDto userDto, IEnumerable<Guid> relatedUserIds);
-
-        //Task SendMemberAddedAsync(Guid chatId, ChatDto model, Guid userId);
-        //Task SendMemberRemovedAsync(Guid chatId, Guid userId);
-        //Task SendMemberLeftAsync(Guid chatId, Guid userId);
-        //Task SendPromotedAsync(Guid chatId, Guid userId);
-        //Task SendDemotedAsync(Guid chatId, Guid userId);
-        //Task SendProfileUpdatedAsync(Guid userId, UserDto userDto);
+      
     }
 }

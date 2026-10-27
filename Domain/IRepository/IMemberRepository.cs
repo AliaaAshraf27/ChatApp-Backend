@@ -14,7 +14,6 @@ namespace Domain.IRepository
         Task<ChatMember?> GetOtherMemberAsync(Guid chatId, Guid userId);
         Task<List<Guid>> GetExistingMemberIdsAsync(Guid chatId, List<Guid> userIds);
         Task<List<Guid>> GetMemberIdsAsync(Guid chatId);
-        //Task<Guid?> GetOtherMemberIdAsync(Guid chatId, Guid userId);
         Task<ChatMember?> GetOtherAdminAsync(Guid chatId, Guid excludeUserId);
         Task<bool> IsMemberAsync(Guid chatId, Guid userId);
         Task<bool> IsAdminAsync(Guid chatId, Guid userId);

@@ -11,8 +11,7 @@ namespace Domain.IRepository
     {
         Task<User?> GetByPhoneAsync(string phoneNumber);
         Task<User?> GetByIdAsync(Guid id);
-        Task<Dictionary<Guid, string>> GetNamesByIdsAsync(
-     IEnumerable<Guid> userIds);
+        Task<Dictionary<Guid, string>> GetNamesByIdsAsync(IEnumerable<Guid> userIds);
         Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task DeleteAsync(User user);
